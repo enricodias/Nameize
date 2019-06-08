@@ -1,0 +1,22 @@
+{
+    "name": "enricodias/nameize",
+    "type": "library",
+    "license": "MIT",
+    "description": "A simple package to format full names.",
+    "keywords": ["name", "formater", "format"],
+    "authors": [
+        {
+            "name": "Enrico Dias",
+            "email": "enrico@enricodias.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+		"ext-mbstring": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "nameize": "src"
+        }
+    }
+}
