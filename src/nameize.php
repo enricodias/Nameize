@@ -2,10 +2,10 @@
 
 /*
 * Capitalize segments of a name, and put the rest into lower case
-* $Object = new nameize\nameize();
+* $Object = new \nameize\nameize();
 * $Object->nameize("john o'grady-smith");     // returns John O'Grady-Smith
-* nameize\nameize::format("joão da silva");   // returns João da Silva
-* nameize\nameize::format("mArIa dAs DORES"); // returns Maria das Dores
+* \nameize\nameize::format("joão da silva");   // returns João da Silva
+* \nameize\nameize::format("mArIa dAs DORES"); // returns Maria das Dores
 */
 
 namespace nameize;

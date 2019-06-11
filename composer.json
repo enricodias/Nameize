@@ -15,8 +15,8 @@
 		"ext-mbstring": "*"
     },
     "autoload": {
-        "psr-0": {
-            "nameize": "src"
+        "psr-4": {
+            "nameize\\": "src"
         }
     }
 }
