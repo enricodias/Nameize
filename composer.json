@@ -2,7 +2,7 @@
     "name": "enricodias/nameize",
     "type": "library",
     "license": "MIT",
-    "description": "A simple package to format full names.",
+    "description": "A simple class to correctly capitalize full names, specially Brazilian names.",
     "keywords": ["name", "formater", "format"],
     "authors": [
         {
