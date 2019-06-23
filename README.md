@@ -1,14 +1,12 @@
 # nameize
 
 A simple class to correctly capitalize full names, specially Brazilian names.
-<br/><br/>
 
 ## Setup
 
 ```
 composer require enricodias/nameize
 ```
-<br/>
 
 ## Usage
 
@@ -33,7 +31,6 @@ The second parameter is optional and receives a single (or list of) special char
 \nameize\nameize::format("john o'grady-smith");      // returns John O'Grady-Smith
 \nameize\nameize::format("john o'grady-smith", "'"); // returns John O'Grady-smith
 ```
-<br/><br/>
 
 ## Other features
 
