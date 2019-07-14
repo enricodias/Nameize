@@ -6,7 +6,7 @@ A simple class to correctly capitalize full names, specially Brazilian names.
 
 Require this package with Composer in the root directory of your project.
 
-```
+```bash
 composer require enricodias/nameize
 ```
 
