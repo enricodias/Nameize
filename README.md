@@ -2,7 +2,9 @@
 
 A simple class to correctly capitalize full names, specially Brazilian names.
 
-## Setup
+## Installation
+
+Require this package with Composer in the root directory of your project.
 
 ```
 composer require enricodias/nameize
