@@ -15,14 +15,14 @@ composer require enricodias/nameize
 ### Creating an object instance
 
 ```php
-$Object = new \nameize\nameize();
+$Object = new \enricodias\nameize();
 $Object->nameize("joão da silva"); // returns João da Silva
 ```
 
 ### Using a static method
 
 ```php
-\nameize\nameize::format("mArIa dAs DORES"); // returns Maria das Dores
+\enricodias\nameize::format("mArIa dAs DORES"); // returns Maria das Dores
 ```
 
 ### Specifying special characters
@@ -30,8 +30,8 @@ $Object->nameize("joão da silva"); // returns João da Silva
 The second parameter is optional and receives a single (or list of) special characters. Those characters sinalizes that the next letter should be in upper case. If no character is specified, the default ```array("'", '-')``` is used.
 
 ```php
-\nameize\nameize::format("john o'grady-smith");      // returns John O'Grady-Smith
-\nameize\nameize::format("john o'grady-smith", "'"); // returns John O'Grady-smith
+\enricodias\nameize::format("john o'grady-smith");      // returns John O'Grady-Smith
+\enricodias\nameize::format("john o'grady-smith", "'"); // returns John O'Grady-smith
 ```
 
 ## Other features
