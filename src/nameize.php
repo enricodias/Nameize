@@ -6,7 +6,7 @@ class nameize {
 	
 	private $_allowedCharacters = array();
 	
-	public function __construct($allowedCharacters = false) {
+	public function __construct($allowedCharacters = null) {
 		
 		$this->_allowedCharacters = self::filterArray($allowedCharacters);
 		
@@ -18,7 +18,7 @@ class nameize {
 		
 	}
 
-	public static function format($name, $allowedCharacters = false) {
+	public static function format($name, $allowedCharacters = null) {
 		
 		return self::process($name, self::filterArray($allowedCharacters));
 		
@@ -35,22 +35,18 @@ class nameize {
 				if (stripos($string, $char) !== false) {
 					
 					$mend = '';
-					$a_split = explode($char, $string);
+					$split = explode($char, $string);
 					
 					if ($char == ' ') {
 						
-						foreach ($a_split as $temp2) {
+						foreach ($split as $temp) {
 							
-							if (strlen($temp2) > 3) $mend .= self::mb_ucfirst($temp2).$char;
-							else $mend .= $temp2.$char;
+							if (strlen($temp) > 3) $mend .= self::ucFirst($temp).$char;
+							else $mend .= $temp.$char;
 							
 						}
 						
-					} else {
-						
-						foreach ($a_split as $temp2) $mend .= self::mb_ucfirst($temp2).$char;
-						
-					}
+					} else foreach ($split as $temp) $mend .= self::ucFirst($temp).$char;
 					
 					$string = substr($mend, 0, -1);
 					
@@ -60,11 +56,11 @@ class nameize {
 			
 		}
 		
-		return self::mb_ucfirst($string);
+		return self::ucFirst($string);
 		
 	}
 
-	private static function mb_ucfirst($string) {
+	private static function ucFirst($string) {
 		
 		$string = mb_strtoupper(mb_substr($string, 0, 1)).mb_substr($string, 1);
 		
