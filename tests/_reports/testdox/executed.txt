@@ -1,0 +1,10 @@
+nameize
+ [x] Names with data set #0
+ [x] Names with data set #1
+ [x] Names with data set #2
+ [x] Names with data set #3
+ [x] Names with data set #4
+ [x] Names with data set #5
+ [x] Names with data set #6
+ [x] Static method
+
