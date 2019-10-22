@@ -23,7 +23,6 @@ and include the composer's autoloader in your code
 include 'vendor/autoload.php';
 ```
 
-
 ## Usage
 
 ### Simple usage
