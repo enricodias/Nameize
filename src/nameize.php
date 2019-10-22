@@ -5,7 +5,7 @@ namespace enricodias;
 class Nameize
 {
 	
-	private $_minLenght = 3;
+	private $_minLenght = 4;
 	private $_allowedCharacters = array(' ', "'", '-');
 	
 	public function __construct($allowedCharacters = null) {
@@ -18,7 +18,7 @@ class Nameize
 
 	public function minLenght($lenght) {
 
-		if (!is_int($lenght) || $lenght < 1) return;
+		if (!is_int($lenght) || $lenght < 1 || $lenght > 5) return;
 
 		$this->_minLenght = $lenght;
 
@@ -43,7 +43,7 @@ class Nameize
 						
 						foreach ($split as $temp) {
 							
-							if (strlen($temp) > $this->_minLenght) $mend .= self::ucFirst($temp).$char;
+							if (strlen($temp) >= $this->_minLenght) $mend .= self::ucFirst($temp).$char;
 							else $mend .= $temp.$char;
 							
 						}
