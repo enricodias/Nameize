@@ -1,8 +1,11 @@
-# nameize
+# Nameize
 
 [![Build Status](https://travis-ci.com/enricodias/nameize.svg?branch=master)](https://travis-ci.com/enricodias/nameize)
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/ce9cfa2739534021a15aebfb7037ef1d)](https://www.codacy.com/manual/enricodias/nameize?utm_source=github.com&utm_medium=referral&utm_content=enricodias/nameize&utm_campaign=Badge_Coverage)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/ce9cfa2739534021a15aebfb7037ef1d)](https://www.codacy.com/manual/enricodias/nameize?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=enricodias/nameize&amp;utm_campaign=Badge_Grade)
+[![Latest version](http://img.shields.io/packagist/v/enricodias/nameize.svg)](https://packagist.org/packages/enricodias/nameize)
+[![Downloads total](http://img.shields.io/packagist/dt/enricodias/nameize.svg)](https://packagist.org/packages/enricodias/nameize)
+[![License](http://img.shields.io/packagist/l/enricodias/nameize.svg)](https://github.com/enricodias/nameize/blob/master/LICENSE.md)
 
 A simple class to correctly capitalize full names.
 
@@ -26,13 +29,14 @@ include 'vendor/autoload.php';
 ### Simple usage
 
 ```php
-echo (new \enricodias\nameize())->name("Carlo D'ippoliti"); // Carlo D'Ippoliti
+echo (new \enricodias\Nameize())->name("Carlo D'ippoliti"); // Carlo D'Ippoliti
 ```
 
 or
 
 ```php
-$nameize = new \enricodias\nameize();
+$nameize = new \enricodias\Nameize();
+
 echo $nameize->name("Matteo Dell'aqcua");  // Matteo Dell'Aqcua
 echo $nameize->name("john o'grady-smith"); // John O'Grady-Smith
 ```
@@ -42,19 +46,33 @@ echo $nameize->name("john o'grady-smith"); // John O'Grady-Smith
 The constructor has an optional argument that receives an array of special characters. Those characters sinalizes that the next letter should be in upper case. If no character is specified, the default ```array("'", '-')``` is used. If you pass a string, it will be consider a single character.
 
 ```php
-use enricodias\nameize;
+use enricodias\Nameize;
 
-echo (new nameize("'"))->name("john o'grady-smith");        // John O'Grady-smith
-echo (new nameize(array('-')))->name("john o'grady-smith"); // John O'grady-Smith
+echo (new Nameize("'"))->name("john o'grady-smith");        // John O'Grady-smith
+echo (new Nameize(array('-')))->name("john o'grady-smith"); // John O'grady-Smith
 ```
 
 or 
 
 ```php
-$nameize = new \enricodias\nameize("'");
+$nameize = new \enricodias\Nameize("'");
+
 echo $nameize->name("Matteo Dell'aqcua");  // Matteo Dell'Aqcua
 echo $nameize->name("john o'grady-smith"); // John O'Grady-smith
 ```
+
+### Minimum length
+
+Some languages require capitalization on the first letter of every word regardless of their size. The ```minLength``` method sets the minimum length of which words will be capitalized (min: 1, max: 5, default: 4).
+
+```php
+$nameize = new \enricodias\Nameize();
+
+echo $nameize->minLength(1)->name("Tri vu phu");    // Tri Vu Phu
+echo $nameize->minLength(1)->name("Shuanping dai"); // Shuanping Dai
+```
+
+Your application may detect the user's country and use the appropriate minLength value.
 
 ## Additional features
 

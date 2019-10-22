@@ -2,9 +2,10 @@
 
 namespace enricodias;
 
-class nameize
+class Nameize
 {
 	
+	private $_minLength = 4;
 	private $_allowedCharacters = array(' ', "'", '-');
 	
 	public function __construct($allowedCharacters = null) {
@@ -14,15 +15,14 @@ class nameize
 		return $this;
 
 	}
-	
-	public function setAllowedCharacters($characters) {
 
-		if (!is_array($characters)) $characters = array($characters);
+	public function minLength($length) {
 
-		$characters[] = ' '; // space is always used
-		$characters = array_unique($characters);
+		if (!is_int($length) || $length < 1 || $length > 5) return;
 
-		$this->_allowedCharacters = $characters;
+		$this->_minLength = $length;
+
+		return $this;
 
 	}
 
@@ -43,7 +43,7 @@ class nameize
 						
 						foreach ($split as $temp) {
 							
-							if (strlen($temp) > 3) $mend .= self::ucFirst($temp).$char;
+							if (strlen($temp) >= $this->_minLength) $mend .= self::ucFirst($temp).$char;
 							else $mend .= $temp.$char;
 							
 						}
@@ -62,6 +62,17 @@ class nameize
 
 		return $this->_processedName;
 		
+	}
+	
+	public function setAllowedCharacters($characters) {
+
+		if (!is_array($characters)) $characters = array($characters);
+
+		$characters[] = ' '; // space is always used
+		$characters = array_unique($characters);
+
+		$this->_allowedCharacters = $characters;
+
 	}
 
 	private static function ucFirst($string) {

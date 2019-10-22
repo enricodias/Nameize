@@ -1,9 +1,9 @@
 <?php
 
-use enricodias\nameize;
+use enricodias\Nameize;
 use PHPUnit\Framework\TestCase;
 
-final class nameizeTest extends TestCase
+final class NameizeTest extends TestCase
 {
     
     public function testCalls()
@@ -11,9 +11,9 @@ final class nameizeTest extends TestCase
         $original = "john o'grady-smith";
         $expected = "John O'Grady-Smith";
 
-        $this->assertSame($expected, (new nameize())->name($original));
+        $this->assertSame($expected, (new Nameize())->name($original));
 
-        $nameize = new nameize();
+        $nameize = new Nameize();
         $this->assertSame($expected, $nameize->name($original));
     }
 
@@ -22,13 +22,12 @@ final class nameizeTest extends TestCase
      */
     public function testNames($name, $allowedCharacters, $expected)
     {
-        $nameize = new nameize($allowedCharacters);
+        $nameize = new Nameize($allowedCharacters);
 
         $this->assertSame($expected, $nameize->name($name));
     }
 
     /**
-     * 
      * @codeCoverageIgnore
      */
     public function nameProvider()
@@ -36,11 +35,9 @@ final class nameizeTest extends TestCase
         return [
 
             // issue #1
-            //["Tri vu phu",        null, "Tri Vu Phu"],
             ["Carlo D'ippoliti",  null, "Carlo D'Ippoliti"],
             ["Kerényi ádám",      null, "Kerényi Ádám"],
             ["Matteo Dell'aqcua", null, "Matteo Dell'Aqcua"],
-            //["Shuanping dai",     null, "Shuanping Dai"],
 
             // default tests
             ["john o'grady-smith",  null,            "John O'Grady-Smith"],
@@ -54,4 +51,29 @@ final class nameizeTest extends TestCase
 
         ];
     }
+
+    /**
+     * @dataProvider shortNamesProvider
+     */
+    public function testMinLength($name, $expected)
+    {
+        $nameize = new Nameize();
+
+        $this->assertSame($expected, $nameize->minLength(1)->name($name));
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    public function shortNamesProvider()
+    {
+        return [
+
+            // issue #1
+            ["Tri vu phu",    "Tri Vu Phu"],
+            ["Shuanping dai", "Shuanping Dai"],
+
+        ];
+    }
+
 }
