@@ -3,6 +3,9 @@
 [![Build Status](https://travis-ci.com/enricodias/nameize.svg?branch=master)](https://travis-ci.com/enricodias/nameize)
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/ce9cfa2739534021a15aebfb7037ef1d)](https://www.codacy.com/manual/enricodias/nameize?utm_source=github.com&utm_medium=referral&utm_content=enricodias/nameize&utm_campaign=Badge_Coverage)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/ce9cfa2739534021a15aebfb7037ef1d)](https://www.codacy.com/manual/enricodias/nameize?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=enricodias/nameize&amp;utm_campaign=Badge_Grade)
+[![Latest version](http://img.shields.io/packagist/v/enricodias/nameize.svg)](https://packagist.org/packages/enricodias/nameize)
+[![Downloads total](http://img.shields.io/packagist/dt/enricodias/nameize.svg)](https://packagist.org/packages/enricodias/nameize)
+[![License](http://img.shields.io/packagist/l/enricodias/nameize.svg)](https://github.com/enricodias/nameize/blob/master/LICENSE.md)
 
 A simple class to correctly capitalize full names.
 
