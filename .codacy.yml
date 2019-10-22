@@ -2,6 +2,5 @@ coverage:
    enabled: true
    exclude_paths:
      - composer.json
-     - '*.md'
      - '*.xml'
      - '*.yml'
