@@ -28,7 +28,6 @@ final class NameizeTest extends TestCase
     }
 
     /**
-     * 
      * @codeCoverageIgnore
      */
     public function nameProvider()
@@ -36,11 +35,9 @@ final class NameizeTest extends TestCase
         return [
 
             // issue #1
-            //["Tri vu phu",        null, "Tri Vu Phu"],
             ["Carlo D'ippoliti",  null, "Carlo D'Ippoliti"],
             ["Kerényi ádám",      null, "Kerényi Ádám"],
             ["Matteo Dell'aqcua", null, "Matteo Dell'Aqcua"],
-            //["Shuanping dai",     null, "Shuanping Dai"],
 
             // default tests
             ["john o'grady-smith",  null,            "John O'Grady-Smith"],
@@ -54,4 +51,29 @@ final class NameizeTest extends TestCase
 
         ];
     }
+
+    /**
+     * @dataProvider shortNamesProvider
+     */
+    public function testMinLenght($name, $expected)
+    {
+        $nameize = new Nameize();
+
+        $this->assertSame($expected, $nameize->minLenght(1)->name($name));
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    public function shortNamesProvider()
+    {
+        return [
+
+            // issue #1
+            ["Tri vu phu",    "Tri Vu Phu"],
+            ["Shuanping dai", "Shuanping Dai"],
+
+        ];
+    }
+
 }
