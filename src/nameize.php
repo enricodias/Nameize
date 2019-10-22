@@ -9,7 +9,7 @@ class nameize
 	
 	public function __construct($allowedCharacters = null) {
 		
-		if (!is_null($allowedCharacters)) $this->setAllowedCharacters($allowedCharacters);
+		if ($allowedCharacters !== null) $this->setAllowedCharacters($allowedCharacters);
 
 		return $this;
 
