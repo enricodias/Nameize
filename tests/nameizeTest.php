@@ -1,9 +1,9 @@
 <?php
 
-use enricodias\nameize;
+use enricodias\Nameize;
 use PHPUnit\Framework\TestCase;
 
-final class nameizeTest extends TestCase
+final class NameizeTest extends TestCase
 {
     
     public function testCalls()
@@ -11,9 +11,9 @@ final class nameizeTest extends TestCase
         $original = "john o'grady-smith";
         $expected = "John O'Grady-Smith";
 
-        $this->assertSame($expected, (new nameize())->name($original));
+        $this->assertSame($expected, (new Nameize())->name($original));
 
-        $nameize = new nameize();
+        $nameize = new Nameize();
         $this->assertSame($expected, $nameize->name($original));
     }
 
@@ -22,7 +22,7 @@ final class nameizeTest extends TestCase
      */
     public function testNames($name, $allowedCharacters, $expected)
     {
-        $nameize = new nameize($allowedCharacters);
+        $nameize = new Nameize($allowedCharacters);
 
         $this->assertSame($expected, $nameize->name($name));
     }

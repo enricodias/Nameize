@@ -2,7 +2,7 @@
 
 namespace enricodias;
 
-class nameize
+class Nameize
 {
 	
 	private $_allowedCharacters = array(' ', "'", '-');
