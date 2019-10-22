@@ -2,35 +2,37 @@
 
 namespace enricodias;
 
-class nameize {
+class nameize
+{
 	
-	private $_allowedCharacters = array();
+	private $_allowedCharacters = array(' ', "'", '-');
 	
 	public function __construct($allowedCharacters = null) {
 		
-		$this->_allowedCharacters = self::filterArray($allowedCharacters);
-		
+		if (!is_null($allowedCharacters)) $this->setAllowedCharacters($allowedCharacters);
+
+		return $this;
+
 	}
 	
-	public function nameize($name) {
-		
-		return self::process($name, $this->_allowedCharacters);
-		
+	public function setAllowedCharacters($characters) {
+
+		if (!is_array($characters)) $characters = array($characters);
+
+		$characters[] = ' '; // space is always used
+		$characters = array_unique($characters);
+
+		$this->_allowedCharacters = $characters;
+
 	}
 
-	public static function format($name, $allowedCharacters = null) {
-		
-		return self::process($name, self::filterArray($allowedCharacters));
-		
-	}
-	
-	private static function process($name, $allowedCharacters) {
+	public function name($name) {
 
 		$string = mb_strtolower($name, 'UTF-8');
 		
-		if (is_array($allowedCharacters) && !empty($allowedCharacters)) {
+		if (is_array($this->_allowedCharacters) && !empty($this->_allowedCharacters)) {
 			
-			foreach ($allowedCharacters as $char) {
+			foreach ($this->_allowedCharacters as $char) {
 				
 				if (stripos($string, $char) !== false) {
 					
@@ -55,8 +57,10 @@ class nameize {
 			}
 			
 		}
-		
-		return self::ucFirst($string);
+
+		$this->_processedName = self::ucFirst($string);
+
+		return $this->_processedName;
 		
 	}
 
@@ -67,19 +71,5 @@ class nameize {
 		return $string;
 	
 	}
-	
-	private static function filterArray($array) {
-
-		if (empty($array)) $array = array("'", '-');
-		elseif (!is_array($array)) $array = array($array);
-
-		$array[] = ' ';
-		$array = array_unique($array);
-
-		return $array;
-
-	}
 
 }
-
-?>

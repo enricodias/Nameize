@@ -1,39 +1,61 @@
 # nameize
 
-A simple class to correctly capitalize full names, specially Brazilian names.
+[![Build Status](https://travis-ci.com/enricodias/nameize.svg?branch=master)](https://travis-ci.com/enricodias/nameize)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/ce9cfa2739534021a15aebfb7037ef1d)](https://www.codacy.com/manual/enricodias/nameize?utm_source=github.com&utm_medium=referral&utm_content=enricodias/nameize&utm_campaign=Badge_Coverage)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ce9cfa2739534021a15aebfb7037ef1d)](https://www.codacy.com/manual/enricodias/nameize?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=enricodias/nameize&amp;utm_campaign=Badge_Grade)
+
+A simple class to correctly capitalize full names.
 
 ## Installation
 
-Require this package with Composer in the root directory of your project.
+Require this package with Composer in the root directory of your project
 
 ```bash
 composer require enricodias/nameize
 ```
 
-## Usage
-
-### Creating an object instance
+and include the composer's autoloader in your code
 
 ```php
-$Object = new \enricodias\nameize();
-$Object->nameize("joão da silva"); // returns João da Silva
+include 'vendor/autoload.php';
 ```
 
-### Using a static method
+
+## Usage
+
+### Simple usage
 
 ```php
-\enricodias\nameize::format("mArIa dAs DORES"); // returns Maria das Dores
+echo (new \enricodias\nameize())->name("Carlo D'ippoliti"); // Carlo D'Ippoliti
+```
+
+or
+
+```php
+$nameize = new \enricodias\nameize();
+echo $nameize->name("Matteo Dell'aqcua");  // Matteo Dell'Aqcua
+echo $nameize->name("john o'grady-smith"); // John O'Grady-Smith
 ```
 
 ### Specifying special characters
 
-The second parameter is optional and receives a single (or list of) special characters. Those characters sinalizes that the next letter should be in upper case. If no character is specified, the default ```array("'", '-')``` is used.
+The constructor has an optional argument that receives an array of special characters. Those characters sinalizes that the next letter should be in upper case. If no character is specified, the default ```array("'", '-')``` is used. If you pass a string, it will be consider a single character.
 
 ```php
-\enricodias\nameize::format("john o'grady-smith");      // returns John O'Grady-Smith
-\enricodias\nameize::format("john o'grady-smith", "'"); // returns John O'Grady-smith
+use enricodias\nameize;
+
+echo (new nameize("'"))->name("john o'grady-smith");        // John O'Grady-smith
+echo (new nameize(array('-')))->name("john o'grady-smith"); // John O'grady-Smith
 ```
 
-## Other features
+or 
 
-If you need more features, I recommend using a name parser such as https://github.com/theiconic/name-parser
+```php
+$nameize = new \enricodias\nameize("'");
+echo $nameize->name("Matteo Dell'aqcua");  // Matteo Dell'Aqcua
+echo $nameize->name("john o'grady-smith"); // John O'Grady-smith
+```
+
+## Additional features
+
+If you need more features I recommend using a name parser such as <https://github.com/theiconic/name-parser>
