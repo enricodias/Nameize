@@ -48,8 +48,8 @@ The constructor has an optional argument that receives an array of special chara
 ```php
 use enricodias\Nameize;
 
-echo (new nameize("'"))->name("john o'grady-smith");        // John O'Grady-smith
-echo (new nameize(array('-')))->name("john o'grady-smith"); // John O'grady-Smith
+echo (new Nameize("'"))->name("john o'grady-smith");        // John O'Grady-smith
+echo (new Nameize(array('-')))->name("john o'grady-smith"); // John O'grady-Smith
 ```
 
 or 
