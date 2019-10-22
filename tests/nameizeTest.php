@@ -55,11 +55,11 @@ final class NameizeTest extends TestCase
     /**
      * @dataProvider shortNamesProvider
      */
-    public function testMinLenght($name, $expected)
+    public function testMinLength($name, $expected)
     {
         $nameize = new Nameize();
 
-        $this->assertSame($expected, $nameize->minLenght(1)->name($name));
+        $this->assertSame($expected, $nameize->minLength(1)->name($name));
     }
 
     /**

@@ -61,18 +61,18 @@ echo $nameize->name("Matteo Dell'aqcua");  // Matteo Dell'Aqcua
 echo $nameize->name("john o'grady-smith"); // John O'Grady-smith
 ```
 
-### Minimum lenght
+### Minimum length
 
-Some languages require capitalization on the first letter of every word regardless of their size. The ```minLenght``` method sets the minimum lenght of which words will be capitalized (min: 1, max: 5, default: 4).
+Some languages require capitalization on the first letter of every word regardless of their size. The ```minLength``` method sets the minimum length of which words will be capitalized (min: 1, max: 5, default: 4).
 
 ```php
 $nameize = new \enricodias\nameize();
 
-echo $nameize->minLenght(1)->name("Tri vu phu");    // Tri Vu Phu
-echo $nameize->minLenght(1)->name("Shuanping dai"); // Shuanping Dai
+echo $nameize->minLength(1)->name("Tri vu phu");    // Tri Vu Phu
+echo $nameize->minLength(1)->name("Shuanping dai"); // Shuanping Dai
 ```
 
-Your application may detect the user's country and use the appropriate minLenght value.
+Your application may detect the user's country and use the appropriate minLength value.
 
 ## Additional features
 
