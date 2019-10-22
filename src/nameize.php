@@ -25,17 +25,6 @@ class Nameize
 		return $this;
 
 	}
-	
-	public function setAllowedCharacters($characters) {
-
-		if (!is_array($characters)) $characters = array($characters);
-
-		$characters[] = ' '; // space is always used
-		$characters = array_unique($characters);
-
-		$this->_allowedCharacters = $characters;
-
-	}
 
 	public function name($name) {
 
@@ -73,6 +62,17 @@ class Nameize
 
 		return $this->_processedName;
 		
+	}
+	
+	public function setAllowedCharacters($characters) {
+
+		if (!is_array($characters)) $characters = array($characters);
+
+		$characters[] = ' '; // space is always used
+		$characters = array_unique($characters);
+
+		$this->_allowedCharacters = $characters;
+
 	}
 
 	private static function ucFirst($string) {
