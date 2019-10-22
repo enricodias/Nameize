@@ -1,4 +1,4 @@
-# nameize
+# Nameize
 
 [![Build Status](https://travis-ci.com/enricodias/nameize.svg?branch=master)](https://travis-ci.com/enricodias/nameize)
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/ce9cfa2739534021a15aebfb7037ef1d)](https://www.codacy.com/manual/enricodias/nameize?utm_source=github.com&utm_medium=referral&utm_content=enricodias/nameize&utm_campaign=Badge_Coverage)
