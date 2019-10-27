@@ -2,7 +2,7 @@
     "name": "enricodias/nameize",
     "type": "library",
     "license": "MIT",
-    "description": "A simple class to correctly capitalize full names, specially Brazilian names.",
+    "description": "A simple class to correctly capitalize full names.",
     "keywords": ["name", "formater", "format"],
     "authors": [
         {
@@ -21,7 +21,6 @@
     },
     "require-dev": {
         "codacy/coverage": "^1.4",
-        "phpmd/phpmd": "^2.7",
         "phpunit/phpunit": ">5.7 <9"
     }
 }
