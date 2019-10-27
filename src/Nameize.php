@@ -3,8 +3,7 @@
 namespace enricodias;
 
 class Nameize
-{
-	
+{	
 	private $_minLength = 4;
 	private $_allowedCharacters = array(' ', "'", '-');
 	
