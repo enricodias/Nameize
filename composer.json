@@ -3,7 +3,7 @@
     "type": "library",
     "license": "MIT",
     "description": "A simple class to correctly capitalize full names.",
-    "keywords": ["name", "formater", "format"],
+    "keywords": ["name", "capitalize", "formater", "format"],
     "authors": [
         {
             "name": "Enrico Dias",
