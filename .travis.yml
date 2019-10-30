@@ -12,4 +12,4 @@ script:
   - php vendor/bin/phpunit
 
 after_success:
-  - php vendor/bin/codacycoverage clover tests/_reports/logs/clover.xml
+  - vendor/bin/codacycoverage clover tests/_reports/logs/clover.xml
