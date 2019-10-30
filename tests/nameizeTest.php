@@ -5,7 +5,6 @@ use PHPUnit\Framework\TestCase;
 
 final class NameizeTest extends TestCase
 {
-    
     public function testCalls()
     {
         $original = "john o'grady-smith";
