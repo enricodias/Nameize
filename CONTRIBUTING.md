@@ -15,7 +15,7 @@ Ensure that your change was not already proposed by searching old [Issues](https
 -   Update the README.md explaining new or modified features.
 -   Follow the SOLID principles.
 
-Please note, if your changes are purely to things like README, CHANGELOG etc, you can add ```[skip c]``` as the last line of your commit message and your PR won't be run through our continuous integration systems. We ask that you use ```[skip ci]``` where appropriate as it helps to get changes through CI faster and doesn't waste resources kindly donated to the Open Source community.
+Please note, if your changes are purely to things like README, CHANGELOG etc, you can add ```[skip ci]``` as the last line of your commit message and your PR won't be run through our continuous integration systems. We ask that you use ```[skip ci]``` where appropriate as it helps to get changes through CI faster and doesn't waste resources kindly donated to the Open Source community.
 
 ## Guidelines for merging
 
