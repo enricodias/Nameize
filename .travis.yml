@@ -11,7 +11,7 @@ php:
 
 before_install:
   - composer global require hirak/prestissimo
-  
+
 install:
   - composer install
 
@@ -20,3 +20,7 @@ script:
 
 after_success:
   - php vendor/bin/codacycoverage clover tests/_reports/logs/clover.xml -v
+
+branches:
+  only: 
+    - master
