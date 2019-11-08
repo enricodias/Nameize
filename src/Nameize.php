@@ -5,7 +5,7 @@ namespace enricodias;
 /**
  * Nameize
  * 
- * A simple class to correctly capitalize full names.
+ * Correctly capitalize full names.
  * 
  * @author Enrico Dias <enrico@enricodias.com>
  * @link   https://github.com/enricodias/nameize Github repository.
@@ -29,7 +29,7 @@ class Nameize
 	private $_allowedCharacters = array(' ', "'", '-');
 	
 	/**
-	 * Create a new Nameize instance and set allowed characters.
+	 * Creates a new Nameize instance and set allowed characters.
 	 *
 	 * @see    Nameize::$_allowedCharacters Definition of allowed characters.
 	 * @param  string|array $allowedCharacters A single or an array of characters to be set as allowed characters.
@@ -59,7 +59,7 @@ class Nameize
 	}
 
 	/**
-	 * Correctly capitalize a full name.
+	 * Correctly capitalizes a full name.
 	 *
 	 * @param  string $name Name to be capitalized.
 	 * @return string
@@ -102,7 +102,7 @@ class Nameize
 	}
 	
 	/**
-	 * Set one or more allowed characters.
+	 * Sets one or more allowed characters.
 	 *
 	 * @see    Nameize::$_allowedCharacters Definition of allowed characters.
 	 * @param  string|array $characters A single character or an array of characters.
@@ -119,7 +119,7 @@ class Nameize
 	}
 
 	/**
-	 * Make a string's first character uppercase using mbstring.
+	 * Makes a string's first character uppercase using mbstring.
 	 *
 	 * @param  string $string The input string.
 	 * @return string
