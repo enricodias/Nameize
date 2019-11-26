@@ -10,7 +10,7 @@ final class NameizeTest extends TestCase
         $original = "john o'grady-smith";
         $expected = "John O'Grady-Smith";
 
-        $this->assertSame($expected, (new Nameize())->name($original));
+        $this->assertSame($expected, Nameize::create()->name($original));
 
         $nameize = new Nameize();
         $this->assertSame($expected, $nameize->name($original));
@@ -21,7 +21,8 @@ final class NameizeTest extends TestCase
      */
     public function testNames($name, $allowedCharacters, $expected)
     {
-        $nameize = new Nameize($allowedCharacters);
+        $nameize = new Nameize();
+        $nameize->setAllowedCharacters($allowedCharacters);
 
         $this->assertSame($expected, $nameize->name($name));
     }
@@ -46,7 +47,6 @@ final class NameizeTest extends TestCase
             ["john o'grady-smith5", array("'", "-"), "John O'Grady-Smith5"],
             ["joão da silva",       array(),         "João da Silva"],
             ["maria das dores",     null,            "Maria das Dores"],
-            //["mendes d'eça",        null,            "Mendes d'Eça"],
 
         ];
     }
@@ -58,7 +58,7 @@ final class NameizeTest extends TestCase
     {
         $nameize = new Nameize();
 
-        $this->assertSame($expected, $nameize->minLength(1)->name($name));
+        $this->assertSame($expected, $nameize->setMinLength(1)->name($name));
     }
 
     /**
