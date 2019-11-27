@@ -5,7 +5,7 @@ namespace enricodias;
 /**
  * Nameize
  * 
- * A simple class to correctly capitalize full names.
+ * Correctly capitalize full names.
  * 
  * @author Enrico Dias <enrico@enricodias.com>
  * @link   https://github.com/enricodias/nameize Github repository.
@@ -22,44 +22,34 @@ class Nameize
 	/**
 	 * An array of allowed characters.
 	 * 
-	 * Those characters sinalizes that the next letter of a word should be in upper case.
+	 * Those characters signalizes that the next letter of a word should be in upper case.
 	 *
 	 * @var array
 	 */
 	private $_allowedCharacters = array(' ', "'", '-');
 	
 	/**
-	 * Create a new Nameize instance and set allowed characters.
-	 *
-	 * @see    Nameize::$_allowedCharacters Definition of allowed characters.
-	 * @param  string|array $allowedCharacters A single or an array of characters to be set as allowed characters.
+	 * Creates a new Nameize instance.
+	 * 
 	 * @return Nameize
 	 */
-	public function __construct($allowedCharacters = null)
+	public function __construct()
 	{
-		if ($allowedCharacters !== null) $this->setAllowedCharacters($allowedCharacters);
-
 		return $this;
 	}
 
 	/**
-	 * Sets the minimum word length.
+	 * Creates a new Nameize instance and returns it for chaining.
 	 *
-	 * @see    Nameize::$_minLength Definition of minimum word length.
-	 * @param  int $length Minimum word length, must be between 1 and 5.
 	 * @return Nameize
 	 */
-	public function minLength($length)
+	public static function create()
 	{
-		if (!is_int($length) || $length < 1 || $length > 5) return;
-
-		$this->_minLength = $length;
-
-		return $this;
+		return new Nameize();
 	}
 
 	/**
-	 * Correctly capitalize a full name.
+	 * Correctly capitalizes a full name.
 	 *
 	 * @param  string $name Name to be capitalized.
 	 * @return string
@@ -102,24 +92,44 @@ class Nameize
 	}
 	
 	/**
-	 * Set one or more allowed characters.
+	 * Sets one or more allowed characters and returns $this for chaining.
 	 *
 	 * @see    Nameize::$_allowedCharacters Definition of allowed characters.
 	 * @param  string|array $characters A single character or an array of characters.
-	 * @return void
+	 * @return Nameize
 	 */
 	public function setAllowedCharacters($characters)
 	{
+		if ($characters === null) return $this;
+		
 		if (!is_array($characters)) $characters = array($characters);
 
 		$characters[] = ' '; // space is always used
 		$characters = array_unique($characters);
 
 		$this->_allowedCharacters = $characters;
+
+		return $this;
 	}
 
 	/**
-	 * Make a string's first character uppercase using mbstring.
+	 * Sets the minimum word length and returns $this for chaining.
+	 *
+	 * @see    Nameize::$_minLength Definition of minimum word length.
+	 * @param  int $length Minimum word length, must be between 1 and 5.
+	 * @return Nameize
+	 */
+	public function setMinLength($length)
+	{
+		if (!is_int($length) || $length < 1 || $length > 5) return;
+
+		$this->_minLength = $length;
+
+		return $this;
+	}
+
+	/**
+	 * Makes a string's first character uppercase using mbstring.
 	 *
 	 * @param  string $string The input string.
 	 * @return string
