@@ -47,6 +47,7 @@ final class NameizeTest extends TestCase
             ["john o'grady-smith5", array("'", "-"), "John O'Grady-Smith5"],
             ["joão da silva",       array(),         "João da Silva"],
             ["maria das dores",     null,            "Maria das Dores"],
+            ["érico da silva",      null,            "Érico da Silva"],
 
         ];
     }
